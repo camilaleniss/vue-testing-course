@@ -1,5 +1,7 @@
 # vue-testing-course
 
+QR code generator project build in Vue.js to learn how to make unit testing
+
 ## Project setup
 ```
 npm install
