@@ -2,6 +2,8 @@
   <div class="hello">
     <h1 id="header-counter"> counter: {{counter}}</h1>
     <button id="but-increment" v-on:click="increment"> Increment </button>
+    <input type="number" id="input-increment" v-model="inputValue">
+    <button id="but-increment-value" v-on:click="incrementWith(this.inputValue)"> Increment With Value </button>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -41,15 +43,19 @@ export default {
   name: 'HelloWorld',
   data: function () {
     return {
-      counter: 0
+      counter: 0,
+      inputValue: 0
     }
   },
   props: {
     msg: String
   },
   methods: {
-    increment () {
+    increment: function () {
       this.counter++
+    },
+    incrementWith: function (value) {
+      this.counter += value
     }
   }
 }

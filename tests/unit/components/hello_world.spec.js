@@ -57,4 +57,20 @@ describe('HelloWorld.vue', () => {
     // On mock functions the logic implemented in HelloWorld.vue it's not perfomed, just called
     expect(wrapper.vm.counter).toBe(0)
   })
+  it('button increment with value should increment with a given input', async () => {
+    const spyIncrementWith = jest.spyOn(HelloWorld.methods, 'incrementWith')
+
+    const wrapper = shallowMount(HelloWorld, {})
+
+    wrapper.find('#input-increment').setValue(15)
+
+    expect(wrapper.vm.inputValue).toBe(15)
+    expect(wrapper.vm.counter).toBe(0)
+
+    const component = wrapper.find('#but-increment-value')
+    await component.trigger('click')
+
+    expect(spyIncrementWith).toBeCalledWith(15)
+    expect(wrapper.vm.counter).toBe(15)
+  })
 })
