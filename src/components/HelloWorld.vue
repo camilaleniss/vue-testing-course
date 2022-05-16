@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" style="background-color:black;">
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -37,8 +37,18 @@
 <script>
 export default {
   name: 'HelloWorld',
+  data: function () {
+    return {
+      counter: 0
+    }
+  },
   props: {
     msg: String
+  },
+  methods: {
+    increment () {
+      this.counter++
+    }
   }
 }
 </script>
