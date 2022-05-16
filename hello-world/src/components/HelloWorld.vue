@@ -3,7 +3,7 @@
     <h1 id="header-counter"> counter: {{counter}}</h1>
     <button id="but-increment" v-on:click="increment"> Increment </button>
     <input type="number" id="input-increment" v-model="inputValue">
-    <button id="but-increment-value" v-on:click="incrementWith(this.inputValue)"> Increment With Value </button>
+    <button id="but-increment-value" v-on:click="incrementWith(inputValue)"> Increment With Value </button>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -55,7 +55,7 @@ export default {
       this.counter++
     },
     incrementWith: function (value) {
-      this.counter += value
+      this.counter += Number(value)
     }
   }
 }
