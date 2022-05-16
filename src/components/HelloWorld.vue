@@ -1,5 +1,7 @@
 <template>
-  <div class="hello" style="background-color:black;">
+  <div class="hello">
+    <h1 id="header-counter"> counter: {{counter}}</h1>
+    <button id="but-increment" v-on:click="increment"> Increment </button>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
