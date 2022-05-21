@@ -1,5 +1,7 @@
 <template>
-  <inputs />
+  <v-layout row wrap  align-center justify-center fill-height >
+    <inputs margin-right margin-left />
+  </v-layout>
 </template>
 
 <script>

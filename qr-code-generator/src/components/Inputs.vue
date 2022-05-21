@@ -1,9 +1,9 @@
 <template>
-  <div class="hello">
-    <v-text-field>Ingresa tu texto a convertir aquí</v-text-field>
+  <v-container class="hello" align-center justify-center>
+    <v-text-field v-model="qrCodeInput">Ingresa tu texto a convertir aquí</v-text-field>
     <v-btn>Generar QR</v-btn>
-    <h1>Tu código es:</h1>
-  </div>
+    <h3>Tu código es: {{qrCodeInput}}</h3>
+  </v-container>
 </template>
 
 <script>
@@ -11,6 +11,11 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data: function () {
+    return {
+      qrCodeInput: ''
+    }
   }
 }
 </script>
