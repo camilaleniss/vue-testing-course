@@ -1,4 +1,4 @@
-# qr-generator
+# qr-generator-app
 
 ## Project setup
 ```
