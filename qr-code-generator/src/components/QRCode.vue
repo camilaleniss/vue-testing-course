@@ -9,7 +9,7 @@
 import VueQrcode from 'vue-qrcode'
 
 export default {
-  name: 'QRCodeResponse',
+  name: 'QrCodeResponse',
   components: {
     VueQrcode
   }
