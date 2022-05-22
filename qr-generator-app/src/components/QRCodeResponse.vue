@@ -1,6 +1,6 @@
 <template>
   <v-container class="qr-code-container" align-center justify-center>
-    <vue-qrcode value="https://www.platzi.com" margin="10" scale="7" />
+    <vue-qrcode :value="this.qrCodeText" margin="10" scale="7" />
   </v-container>
 </template>
 
@@ -11,6 +11,9 @@ export default {
   name: 'QrCodeResponse',
   components: {
     VueQrcode
+  },
+  props: {
+    qrCodeText: String
   }
 }
 </script>

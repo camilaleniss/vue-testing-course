@@ -9,9 +9,6 @@
 <script>
 export default {
   name: 'QrCodeInput',
-  props: {
-    msg: String
-  },
   data: function () {
     return {
       qrCodeInput: ''

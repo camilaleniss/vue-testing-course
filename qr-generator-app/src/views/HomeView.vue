@@ -1,7 +1,7 @@
 <template>
   <v-container wrap  align-center justify-center fill-height >
     <qr-code-input margin-right margin-left />
-    <qr-code-response></qr-code-response>
+    <qr-code-response :qrCodeText="qrCodeText" ></qr-code-response>
   </v-container>
 </template>
 
@@ -15,6 +15,12 @@ export default {
   components: {
     QrCodeInput,
     QrCodeResponse
+  },
+
+  data: function () {
+    return {
+      qrCodeText: 'Eddy Valencia'
+    }
   }
 }
 </script>
