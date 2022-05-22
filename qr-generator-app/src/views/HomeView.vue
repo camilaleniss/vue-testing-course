@@ -1,6 +1,7 @@
 <template>
   <v-container wrap  align-center justify-center fill-height >
-    <qr-code-input margin-right margin-left />
+    <h1>Generador de Código QR</h1>
+    <qr-code-input  @qrCodeInput="sendQRCode" margin-right margin-left />
     <qr-code-response :qrCodeText="qrCodeText" ></qr-code-response>
   </v-container>
 </template>
@@ -19,7 +20,13 @@ export default {
 
   data: function () {
     return {
-      qrCodeText: 'Eddy Valencia'
+      qrCodeText: ''
+    }
+  },
+
+  methods: {
+    sendQRCode (qrCode) {
+      this.qrCodeText = qrCode
     }
   }
 }

@@ -1,8 +1,7 @@
 <template>
   <v-container class="hello" align-center justify-center>
     <v-text-field v-model="qrCodeInput"></v-text-field>
-    <v-btn>Generar QR</v-btn>
-    <h3>Tu código es: {{qrCodeInput}}</h3>
+    <v-btn v-on:click="sendQRCode()">Generar QR</v-btn>
   </v-container>
 </template>
 
@@ -12,6 +11,11 @@ export default {
   data: function () {
     return {
       qrCodeInput: ''
+    }
+  },
+  methods: {
+    sendQRCode: function () {
+      this.$emit('qrCodeInput', this.qrCodeInput)
     }
   }
 }
