@@ -19,9 +19,6 @@ export default {
       inputValue: 0
     }
   },
-  props: {
-    msg: String
-  },
   methods: {
     increment: function () {
       this.counter++
