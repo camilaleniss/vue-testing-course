@@ -2,18 +2,14 @@ import { shallowMount } from '@vue/test-utils'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      props: { msg }
-    })
+  it('renders hello world component', () => {
+    const wrapper = shallowMount(HelloWorld)
 
     const component = wrapper.find('.hello')
+
     expect(component.classes()).toContain('hello')
-    // expect(component.attributes().style).toBe('background-color: black;')
-    expect(wrapper.classes()).toContain('hello')
-    expect(wrapper.text()).toMatch(msg)
     expect(wrapper.vm.counter).toBe(0)
+
     wrapper.vm.increment()
     expect(wrapper.vm.counter).toBe(1)
   })
@@ -44,15 +40,17 @@ describe('HelloWorld.vue', () => {
     expect(spyIncrement).toHaveBeenCalledTimes(1)
     expect(wrapper.vm.counter).toBe(1)
   })
-  it('button click should call increment function using mock and counter data increments', async () => {
+  it('button click should call increment function using mock', async () => {
+    const mockedIncrement = jest.fn()
+
     const wrapper = shallowMount(HelloWorld, {})
 
-    wrapper.vm.increment = jest.fn()
+    wrapper.setMethods({ increment: mockedIncrement })
 
     const component = wrapper.find('#but-increment')
     await component.trigger('click')
 
-    expect(wrapper.vm.increment).toHaveBeenCalledTimes(1)
+    expect(mockedIncrement).toHaveBeenCalledTimes(1)
 
     // On mock functions the logic implemented in HelloWorld.vue it's not perfomed, just called
     expect(wrapper.vm.counter).toBe(0)
@@ -64,13 +62,13 @@ describe('HelloWorld.vue', () => {
 
     wrapper.find('#input-increment').setValue(15)
 
-    expect(wrapper.vm.inputValue).toBe(15)
+    expect(Number(wrapper.vm.inputValue)).toBe(15)
     expect(wrapper.vm.counter).toBe(0)
 
     const component = wrapper.find('#but-increment-value')
     await component.trigger('click')
 
-    expect(spyIncrementWith).toBeCalledWith(15)
+    expect(spyIncrementWith).toBeCalledWith('15')
     expect(wrapper.vm.counter).toBe(15)
   })
 })
