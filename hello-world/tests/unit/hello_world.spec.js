@@ -40,15 +40,17 @@ describe('HelloWorld.vue', () => {
     expect(spyIncrement).toHaveBeenCalledTimes(1)
     expect(wrapper.vm.counter).toBe(1)
   })
-  it('button click should call increment function using mock and counter data increments', async () => {
+  it('button click should call increment function using mock', async () => {
+    const mockedIncrement = jest.fn()
+
     const wrapper = shallowMount(HelloWorld, {})
 
-    wrapper.vm.increment = jest.fn()
+    wrapper.setMethods({ increment: mockedIncrement })
 
     const component = wrapper.find('#but-increment')
     await component.trigger('click')
 
-    expect(wrapper.vm.increment).toHaveBeenCalledTimes(1)
+    expect(mockedIncrement).toHaveBeenCalledTimes(1)
 
     // On mock functions the logic implemented in HelloWorld.vue it's not perfomed, just called
     expect(wrapper.vm.counter).toBe(0)
