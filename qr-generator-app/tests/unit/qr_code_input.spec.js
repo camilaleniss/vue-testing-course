@@ -1,6 +1,6 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import QRCodeInput from '@/components/QRCodeInput.vue'
-import Vuetify from 'vuetify'
+import vuetify from '@/plugins/vuetify'
 
 describe('QRCodeInput.vue', () => {
   it('renders qr code input component', () => {
@@ -11,14 +11,10 @@ describe('QRCodeInput.vue', () => {
     expect(component.classes()).toContain('hello')
   })
   it('renders qr code input component with its depedencies', () => {
-    const localVue = createLocalVue()
+    const wrapper = shallowMount(QRCodeInput, { global: { plugins: [vuetify] } })
 
-    localVue.use(Vuetify)
+    const component = wrapper.find('#btn-generate')
 
-    const wrapper = shallowMount(QRCodeInput, { localVue })
-
-    const component = wrapper.find('.hello')
-
-    expect(component.classes()).toContain('hello')
+    expect(component.text()).toBe('Generar QR')
   })
 })
