@@ -11,7 +11,11 @@ describe('QRCodeInput.vue', () => {
     expect(component.classes()).toContain('hello')
   })
   it('renders qr code input component with its depedencies', () => {
-    const wrapper = shallowMount(QRCodeInput, { global: { plugins: [vuetify] } })
+    const wrapper = shallowMount(QRCodeInput,
+      {
+        global:
+        { plugins: [vuetify] }
+      })
 
     const component = wrapper.find('#btn-generate')
 
