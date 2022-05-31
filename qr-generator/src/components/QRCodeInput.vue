@@ -1,7 +1,7 @@
 <template>
   <v-container class="hello" align-center justify-center>
-    <v-text-field v-model="qrCodeInput"></v-text-field>
-    <v-btn v-on:click="sendQRCode()">Generar QR</v-btn>
+    <v-text-field id="txt-qr-code" v-model="qrCodeInput"></v-text-field>
+    <v-btn id="btn-generate" v-on:click="sendQRCode()">Generar QR</v-btn>
   </v-container>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'QrCodeInput',
   data: function () {
     return {
-      qrCodeInput: ''
+      qrCodeInput: 'Camila'
     }
   },
   methods: {
