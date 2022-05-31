@@ -7,9 +7,19 @@ const config = {
   },
   transform: {
     '^.+\\.vue$': '@vue/vue3-jest',
-    '^.+\\js$': 'babel-jest'
+    '^.+\\js$': 'babel-jest',
+    '^.+\\.(t|j)sx?$': [
+      'esbuild-jest',
+      {
+        sourcemap: true,
+        loaders: {
+          '.spec.ts': 'tsx'
+        }
+      }
+    ]
   },
-  moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node']
+  moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/']
 }
 
 module.exports = config
