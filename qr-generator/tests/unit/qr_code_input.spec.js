@@ -10,6 +10,17 @@ describe('QRCodeInput.vue', () => {
 
     expect(component.classes()).toContain('hello')
   })
+  it('not mount with dependency, fails to do actions in elements', () => {
+    /*
+    const wrapper = shallowMount(QRCodeInput)
+
+    const txtInput = wrapper.find('#txt-qr-code')
+
+    txtInput.setValue('www.platzi.com')
+
+    expect(wrapper.vm.qrCodeInput).toBe('www.platzi.com')
+    */
+  })
   it('renders qr code input component with its depedencies', () => {
     const vuetify = new Vuetify()
 
@@ -22,14 +33,14 @@ describe('QRCodeInput.vue', () => {
   it('change qr code input and renders it', () => {
     const vuetify = new Vuetify()
 
-    const wrapper = mount(QRCodeInput, { vuetify })
+    const wrapper = mount(QRCodeInput, {
+      vuetify
+    })
 
     const component = wrapper.find('#txt-qr-code')
 
-    expect(component.text()).toBe('')
+    component.setValue('www.platzi.com')
 
-    wrapper.vm.qrCodeInput = 'Dummy input'
-
-    expect(component.text()).toBe('Dummy input')
+    expect(wrapper.vm.qrCodeInput).toBe('www.platzi.com')
   })
 })
