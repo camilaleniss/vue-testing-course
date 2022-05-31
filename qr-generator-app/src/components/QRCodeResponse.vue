@@ -1,7 +1,7 @@
 <template>
-  <v-container class="qr-code-container" align-center justify-center>
+  <div class="qr-code-container" align-center justify-center>
     <vue-qrcode :value="this.qrCodeText" margin="10" scale="7" />
-  </v-container>
+  </div>
 </template>
 
 <script>
