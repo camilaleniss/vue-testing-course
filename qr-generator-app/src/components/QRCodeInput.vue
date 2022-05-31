@@ -1,6 +1,6 @@
 <template>
   <div class="hello" align-center justify-center>
-    <a-input v-model="qrCodeInput"></a-input>
+    <a-input v-model:value="qrCodeInput"></a-input>
     <a-button v-on:click="sendQRCode()">Generar QR</a-button>
   </div>
 </template>
