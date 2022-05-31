@@ -1,7 +1,7 @@
 <template>
   <div class="hello" align-center justify-center>
-    <a-input v-model:value="qrCodeInput"></a-input>
-    <a-button v-on:click="sendQRCode()">Generar QR</a-button>
+    <a-input id="txt-qr-code" v-model:value="qrCodeInput"></a-input>
+    <a-button id="btn-generate" v-on:click="sendQRCode()">Generar QR</a-button>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'QrCodeInput',
   data: function () {
     return {
-      qrCodeInput: ''
+      qrCodeInput: 'Camila'
     }
   },
   methods: {
@@ -20,20 +20,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="stylus">
-h3
-  margin 40px 0 0
-
-ul
-  list-style-type none
-  padding 0
-
-li
-  display inline-block
-  margin 0 10px
-
-a
-  color #42b983
-</style>
