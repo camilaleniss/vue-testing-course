@@ -20,7 +20,7 @@ const config = {
   },
   moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   transformIgnorePatterns: ['/node_modules/(?!vuetify)'],
-  setupTestFrameworkScriptFile: '<rootDir>tests/setupTests.js'
+  setupFilesAfterEnv: ['<rootDir>tests/setupTests.js']
 }
 
 module.exports = config
