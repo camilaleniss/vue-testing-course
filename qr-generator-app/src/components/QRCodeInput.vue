@@ -1,7 +1,7 @@
 <template>
   <el-container class="hello" align-center justify-center>
-    <el-input v-model="qrCodeInput"></el-input>
-    <el-button v-on:click="sendQRCode()">Generar QR</el-button>
+    <el-input v-model="qrCodeInput"/>
+    <el-button id="btn-generate" v-on:click="sendQRCode()">Generar QR</el-button>
   </el-container>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'QrCodeInput',
   data: function () {
     return {
-      qrCodeInput: ''
+      qrCodeInput: 'Camila'
     }
   },
   methods: {
