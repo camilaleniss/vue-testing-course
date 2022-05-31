@@ -1,9 +1,13 @@
 <template>
-  <v-container wrap  align-center justify-center fill-height >
-    <h1>Generador de Código QR</h1>
-    <qr-code-input  @qrCodeInput="sendQRCode" margin-right margin-left />
-    <qr-code-response :qrCodeText="qrCodeText" ></qr-code-response>
-  </v-container>
+  <el-container wrap  align-center justify-center fill-height >
+    <el-header>
+      <h1>Generador de Código QR</h1>
+    </el-header>
+    <el-main>
+      <qr-code-input  @qrCodeInput="sendQRCode" margin-right margin-left />
+      <qr-code-response :qrCodeText="qrCodeText" ></qr-code-response>
+    </el-main>
+  </el-container>
 </template>
 
 <script>

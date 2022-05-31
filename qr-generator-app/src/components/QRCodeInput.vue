@@ -1,8 +1,8 @@
 <template>
-  <v-container class="hello" align-center justify-center>
-    <v-text-field v-model="qrCodeInput"></v-text-field>
-    <v-btn v-on:click="sendQRCode()">Generar QR</v-btn>
-  </v-container>
+  <el-container class="hello" align-center justify-center>
+    <el-input v-model="qrCodeInput"></el-input>
+    <el-button v-on:click="sendQRCode()">Generar QR</el-button>
+  </el-container>
 </template>
 
 <script>
