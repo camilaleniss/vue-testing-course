@@ -1,8 +1,19 @@
 import { shallowMount, mount } from '@vue/test-utils'
 import QRCodeInput from '@/components/QRCodeInput.vue'
-import vuetify from '@/plugins/vuetify'
+// import vuetify from '@/plugins/vuetify'
+import { createVuetify, components } from 'vuetify'
+
+import { createApp } from 'vue'
+
+const app = createApp({})
+app.use(createVuetify(components))
 
 describe('QRCodeInput.vue', () => {
+  let vuetify
+  beforeEach(() => {
+    vuetify = createVuetify(components)
+  })
+
   it('renders qr code input component', () => {
     const wrapper = shallowMount(QRCodeInput)
 

@@ -19,7 +19,7 @@ const config = {
     ]
   },
   moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node'],
-  transformIgnorePatterns: ['/node_modules/(?!vuetify)'],
+  transformIgnorePatterns: ['node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)'],
   setupFilesAfterEnv: ['<rootDir>tests/setupTests.js']
 }
 
