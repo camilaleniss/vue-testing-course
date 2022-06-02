@@ -10,7 +10,7 @@ export default {
   name: 'QrCodeInput',
   data: function () {
     return {
-      qrCodeInput: 'Camila'
+      qrCodeInput: ''
     }
   },
   methods: {
