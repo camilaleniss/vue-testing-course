@@ -1,50 +1,52 @@
 {
-  "name": "qr-generator-app",
+  "name": "qr-generator",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
     "qrcode": "^1.5.0",
     "core-js": "^3.8.3",
-    "roboto-fontface": "*",
-    "vue": "^3.2.13",
-    "vue-qrcode": "^1.0.0",
-    "vue-router": "^4.0.3",
-    "vuetify": "^3.0.0-beta.0",
-    "vuex": "^4.0.0",
-    "webfontloader": "^1.0.0"
+    "vue": "^2.6.14",
+    "vue-qrcode": "^0.4.0",
+    "vue-router": "^3.5.1",
+    "vuetify": "^2.6.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-e2e-cypress": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-unit-jest": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-standard": "^6.1.0",
-    "@vue/test-utils": "^2.0.0-0",
-    "@vue/vue3-jest": "^27.0.0-alpha.1",
+    "@vue/test-utils": "^1.1.3",
+    "@vue/vue2-jest": "^27.0.0-alpha.2",
     "babel-jest": "^27.0.6",
+    "cypress": "^8.3.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^8.0.3",
     "jest": "^27.0.5",
-    "sass": "^1.38.0",
+    "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
     "stylus": "^0.55.0",
     "stylus-loader": "^6.1.0",
-    "vue-cli-plugin-vuetify": "~2.4.8",
-    "vuetify-loader": "^2.0.0-alpha.0"
+    "vue-cli-plugin-vuetify": "~2.5.0",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify-loader": "^1.7.0"
   },
   "eslintConfig": {
     "root": true,
@@ -52,7 +54,7 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/vue3-essential",
+      "plugin:vue/essential",
       "@vue/standard"
     ],
     "parserOptions": {
@@ -74,10 +76,13 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not dead",
-    "not ie 11"
+    "not dead"
   ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest"
+    "preset": "@vue/cli-plugin-unit-jest",
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+    ],
+    "setupFiles": ["./tests/setup.js"]
   }
 }
