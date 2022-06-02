@@ -9,30 +9,45 @@ describe('QRCodeInput.vue', () => {
     }
   })
 
-  it('renders qr code input component', () => {
-    const wrapper = shallowMount(QRCodeInput)
+  describe('mounting a component', () => {
+    it('renders qr code input component', () => {
+      const wrapper = shallowMount(QRCodeInput)
 
-    const component = wrapper.find('.hello')
+      const component = wrapper.find('.hello')
 
-    expect(component.classes()).toContain('hello')
-  })
-  it('renders qr code input component with its depedencies', () => {
-    const wrapper = shallowMount(QRCodeInput,
-      {
-        global:
+      expect(component.classes()).toContain('hello')
+    })
+    it('renders qr code input component with its depedencies', () => {
+      const wrapper = shallowMount(QRCodeInput,
+        {
+          global:
           { plugins: [store] }
-      })
+        })
 
-    const component = wrapper.find('#btn-generate')
+      const component = wrapper.find('#btn-generate')
 
-    expect(component.text()).toBe('Generar QR')
+      expect(component.text()).toBe('Generar QR')
+    })
+    it('change qr code input and renders it', () => {
+      const wrapper = shallowMount(QRCodeInput)
+
+      const component = wrapper.find('#txt-qr-code')
+
+      expect(component.element.value).toBe('')
+
+      component.setValue('www.platzi.com')
+
+      expect(wrapper.vm.qrCodeInput).toBe('www.platzi.com')
+    })
   })
-  it('change qr code input and renders it', () => {
-    const wrapper = shallowMount(QRCodeInput)
+  describe('actions and mocks', () => {
+    it('change qr code input and renders it', () => {
+      const wrapper = shallowMount(QRCodeInput)
 
-    const component = wrapper.find('#txt-qr-code')
-    component.setValue('www.platzi.com')
+      const component = wrapper.find('#txt-qr-code')
+      component.setValue('www.platzi.com')
 
-    expect(wrapper.vm.qrCodeInput).toBe('www.platzi.com')
+      expect(wrapper.vm.qrCodeInput).toBe('www.platzi.com')
+    })
   })
 })
