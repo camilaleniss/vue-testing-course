@@ -1,5 +1,5 @@
 <template>
-  <div class="qr-code-container" align-center justify-center>
+  <div class="flex justify-center;">
     <vue-qrcode :value="this.qrCodeText" margin="10" scale="7" />
   </div>
 </template>

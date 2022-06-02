@@ -1,6 +1,6 @@
 <template>
-  <div wrap  align-center justify-center fill-height >
-    <h1>Generador de Código QR</h1>
+  <div id="home" class="justify-center" >
+    <h1 class="text-3xl font-light justify-center p-6">Generador de Código QR</h1>
     <qr-code-input  @qrCodeInput="sendQRCode" margin-right margin-left />
     <qr-code-response :qrCodeText="qrCodeText" ></qr-code-response>
   </div>
@@ -31,3 +31,8 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="stylus">
+#home
+  text-align:center
+</style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="hello" align-center justify-center>
-    <input v-model="qrCodeInput"/>
-    <button v-on:click="sendQRCode()">Generar QR</button>
+  <div class="hello justify-center m-2">
+    <input class="border py-2 px-3 text-grey-darkest" v-model="qrCodeInput"/>
+    <button class= "bg-indigo-600 m-4 p-2 rounded-md text-white text-sm" v-on:click="sendQRCode()">Generar QR</button>
   </div>
 </template>
 
