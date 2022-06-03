@@ -40,13 +40,22 @@ describe('QRCodeInput.vue', () => {
     })
   })
   describe('actions and mocks', () => {
-    it('change qr code input and renders it', () => {
+    it('triggers click in qr code button and the event it is called', () => {
+      const spySendQRCode = jest.spyOn(QRCodeInput.methods, 'sendQRCode')
+
       const wrapper = shallowMount(QRCodeInput)
 
-      const component = wrapper.find('#txt-qr-code')
-      component.setValue('www.platzi.com')
+      const txtComponent = wrapper.find('#txt-qr-code')
 
-      expect(wrapper.vm.qrCodeInput).toBe('www.platzi.com')
+      const qrCode = 'www.platzi.com'
+
+      txtComponent.setValue(qrCode)
+
+      const btnComponent = wrapper.find('#btn-generate')
+      btnComponent.trigger('click')
+
+      expect(spySendQRCode).toHaveBeenCalledTimes(1)
+      expect(spySendQRCode).toHaveBeenCalledWith(qrCode)
     })
   })
 })
