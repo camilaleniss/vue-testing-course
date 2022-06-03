@@ -11,7 +11,7 @@ describe('QRCodeInput.vue', () => {
 
       expect(component.classes()).toContain('hello')
     })
-    it('renders qr code input component with its depedencies', () => {
+    describe('renders qr code input component with its depedencies', () => {
       const store = createStore({
         state () {
           return { count: 1 }
@@ -40,7 +40,7 @@ describe('QRCodeInput.vue', () => {
     })
   })
   describe('actions and mocks', () => {
-    it('triggers click in qr code button and the event it is called', () => {
+    describe('triggers click in qr code button and the event it is called', () => {
       const spySendQRCode = jest.spyOn(QRCodeInput.methods, 'sendQRCode')
 
       const wrapper = shallowMount(QRCodeInput)
@@ -54,8 +54,14 @@ describe('QRCodeInput.vue', () => {
       const btnComponent = wrapper.find('#btn-generate')
       btnComponent.trigger('click')
 
-      expect(spySendQRCode).toHaveBeenCalledTimes(1)
-      expect(spySendQRCode).toHaveBeenCalledWith(qrCode)
+      it('the send qr code function it is beign called', () => {
+        expect(spySendQRCode).toHaveBeenCalledTimes(1)
+      })
+      it('the event is well emitted', () => {
+        expect(wrapper.emitted()).toHaveProperty('qrCodeInput')
+        expect(wrapper.emitted('qrCodeInput')).toHaveLength(1)
+        expect(wrapper.emitted('qrCodeInput')[0]).toStrictEqual([qrCode])
+      })
     })
   })
 })
